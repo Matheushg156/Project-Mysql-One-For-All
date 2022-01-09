@@ -46,7 +46,7 @@ CREATE TABLE `songs` (
   PRIMARY KEY (`song_id`),
   CONSTRAINT `fk_songs_artists`
     FOREIGN KEY (`song_artist`)
-    REFERENCES `artists` (`artist_id`)
+    REFERENCES `artists` (`artist_id`),
   CONSTRAINT `fk_songs_albums`
     FOREIGN KEY (`song_album`)
     REFERENCES `albums` (`album_id`)
@@ -59,7 +59,7 @@ CREATE TABLE `playlists` (
   PRIMARY KEY (`playlist_user`, `playlist_song`),
   CONSTRAINT `fk_playlists_users`
     FOREIGN KEY (`playlist_user`)
-    REFERENCES `users` (`user_id`)
+    REFERENCES `users` (`user_id`),
   CONSTRAINT `fk playlist_songs`
     FOREIGN KEY (`playlist_song`)
     REFERENCES `songs` (`song_id`)
@@ -71,7 +71,7 @@ CREATE TABLE `followed_artists` (
   PRIMARY KEY (`user_id`, `artist_id`),
   CONSTRAINT `fk_followed_artists_users`
     FOREIGN KEY (`user_id`)
-    REFERENCES `users` (`user_id`)
+    REFERENCES `users` (`user_id`),
   CONSTRAINT `fk_followed_artists_artists`
     FOREIGN KEY (`artist_id`)
     REFERENCES `artists` (`artist_id`)
@@ -86,16 +86,16 @@ VALUES
 
 INSERT INTO users (user_name, user_age, user_plan, subscription_date)
 VALUES
-  ('Thati', 23, 1, 2019-10-20),
-  ('Cintia', 35, 4, 2017-12-30),
-  ('Bill', 20, 2, 2019-06-05),
-  ('Roger', 45, 3, 2020-05-13),
-  ('Norman', 58, 3, 2017-02-17),
-  ('Patrick', 33, 4, 2017-01-06),
-  ('Vivian', 26, 2, 2018-01-05),
-  ('Carol', 19, 2, 2018-02-14),
-  ('Angelina', 42, 4, 2018-04-29),
-  ('Paul', 46, 4, 2017-01-17);
+  ('Thati', 23, 1, '2019-10-20'),
+  ('Cintia', 35, 4, '2017-12-30'),
+  ('Bill', 20, 2, '2019-06-05'),
+  ('Roger', 45, 3, '2020-05-13'),
+  ('Norman', 58, 3, '2017-02-17'),
+  ('Patrick', 33, 4, '2017-01-06'),
+  ('Vivian', 26, 2, '2018-01-05'),
+  ('Carol', 19, 2, '2018-02-14'),
+  ('Angelina', 42, 4, '2018-04-29'),
+  ('Paul', 46, 4, '2017-01-17');
 
 INSERT INTO artists (artist_name)
 VALUES
